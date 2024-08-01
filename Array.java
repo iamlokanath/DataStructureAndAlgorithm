@@ -61,6 +61,49 @@ public class Array {
         }
         return -1;  
     }
+
+    public static boolean isPrime(int n){
+        if (n <=1 ) {
+            return false;
+        }
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //reverse number
+    public int reverseNumber(int num){
+        int lastDigit;
+        int reversedNumber = 0;
+        while (num != 0) {
+            lastDigit = num % 10;
+            reversedNumber = reversedNumber * 10 + lastDigit;
+            num = num /10;
+
+        }
+        // System.out.println("Reversed Number is: "+ reversedNumber);
+        return reversedNumber;
+    }
+
+    public static double powerOfTwo(int n) {
+        return Math.pow(2, n);
+    }
+    //binary to descimal
+    public static int binaryToDescimal(int bin){
+        int last_digit;
+        int descimal =0;
+        while (bin != 0) {
+            last_digit = bin % 10;
+            descimal += last_digit * (powerOfTwo(last_digit));
+            bin = bin / 10;
+        }
+        return descimal;
+    }
+
+    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the size of the array: ");
@@ -88,9 +131,22 @@ public class Array {
         }
         
         //prime number, 0-100 no of primes
+        int count = 0;
+        for (int i = 0; i <= 100; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+                count++;
+            }
+        }
+        System.out.println();
+        System.out.println("The number of prime numbers between 0 to 100 is " + count);
         //buterfly structuure in * pattern
         //reverse a number
+        int number = 123;
+        System.out.println(arrayops.reverseNumber(number));
         //binary to descimal
+        int binary = 1010;
+        System.out.println(binaryToDescimal(binary));
         //desimal to binary
 
 
